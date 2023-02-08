@@ -12,13 +12,15 @@
       href="./assets/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" defer></script>
     <title>Frontend Mentor | News homepage</title>
   </head>
   <body>
+    <div class="cover" aria-hidden="true"></div>
     <header class="flex">
       <img class="logo" src="./assets/images/logo.svg" alt="W." />
       <nav>
-        <button class="btn-menu">
+        <button class="btn-menu" type="button">
           <div aria-hidden="true"></div>
           <div aria-hidden="true"></div>
           <div aria-hidden="true"></div>
@@ -27,6 +29,7 @@
           <span class="sr-only">Expand menu</span>
         </button>
         <ul class="nav-list">
+          <li><button class="btn-menu-close" type="button">X</button></li>
           <li><a href="">Home</a></li>
           <li><a href="">New</a></li>
           <li><a href="">Popular</a></li>

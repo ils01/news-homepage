@@ -131,6 +131,7 @@ main > * + * {
   background-color: transparent;
   padding: 0;
   padding-top: 0.2rem;
+  cursor: pointer;
 }
 
 .btn-menu > div[aria-hidden="true"]:nth-child(even) {
@@ -144,9 +145,56 @@ main > * + * {
 }
 
 .nav-list {
-  display: none;
   list-style-type: none;
-  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .nav-list {
+    position: fixed;
+    display: grid;
+    align-content: flex-start;
+    top: 0;
+    left: 100%;
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    color: var(--clr-neutral-900);
+    padding: 1.5rem;
+    transition: 0.3s;
+  }
+
+  .nav-list.opened {
+    left: 40%;
+  }
+
+  .nav-list > * + * {
+    margin-top: 1rem;
+  }
+
+  .btn-menu-close {
+    border: 0;
+    background-color: white;
+    color: var(--clr-neutral-900);
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .nav-list > li:has(.btn-menu-close) {
+    justify-self: flex-end;
+  }
+}
+
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+}
+.cover.opened {
+  visibility: visible;
 }
 
 .nav-list a {
@@ -310,11 +358,15 @@ h1 {
   .btn-menu {
     display: none;
   }
+  .btn-menu-close {
+    display: none;
+  }
   .nav-list {
     font-size: 1rem;
     display: flex;
     gap: 2rem;
   }
+
   header {
     margin-bottom: 3.5rem;
   }
